@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mercadillo REBA</title>
+    <link rel="stylesheet" href="styles.css">
+    <script defer src="script.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">
+            <img src="assets/LOGO REBA E1182D.png" alt="Colectivo REBA">
+        </div>
+        <nav>
+            <a href="home.html">Inicio</a>
+            <a href="quehacemos.html">¿Qué hacemos?</a>
+            <a href="sumate.html">¡Súmate!</a>
+            <a href="mercadillo.html" class="active">Mercado REBA</a>
+            <a href="proyectos.html">Nuestros Proyectos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="contacto.html">Contacto</a>
+        </nav>
+    </header>
+    <!-- Carrusel de imágenes -->
+    <section class="carousel">
+        <div class="carousel-container">
+           <div class="slide"><img src="assets/Logo-01.png" alt="Imagen 1"></div> 
+           <div class="slide"><img src="assets/10 IMG_3825 editada.jpg" alt="Imagen 2"></div> 
+           <div class="slide"><img src="assets/1323.jpg" alt="Imagen 3"></div> 
+        </div>
+        <button class="prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="next" onclick="moveSlide(1)">&#10095;</button>
+        <div class="dots">
+            <span class="dot" onclick="currentSlide(0)"></span>
+            <span class="dot" onclick="currentSlide(1)"></span>
+            <span class="dot"  onclick="currentSlide(2)"></span>
+        </div>
+    </section>
+    
+    <!-- Galería de productos -->
+    <section class="products">
+    <div class="product-grid">
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 1">
+            <button>Comprar</button>
+        </div>
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 2">
+            <button>Comprar</button>
+        </div>
+        <!-- Agregar más productos aquí -->
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 3">
+            <button>Comprar</button>
+        </div>
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 4">
+            <button>Comprar</button>
+        </div>
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 5">
+            <button>Comprar</button>
+        </div>
+
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 6">
+            <button>Comprar</button>
+        </div>
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 7">
+            <button>Comprar</button>
+        </div>
+        <div class="product">
+            <img src="assets/20211106_111913.jpg" alt="Producto 8">
+            <button>Comprar</button>
+        </div>
+    </div>
+    </section>
+    
+    <!-- Sección de video -->
+    <section class="video-section">
+        <video controls>
+            <source src="assets/PRESENTACIÓN MERCADITO REBA.mp4" type="video/mp4">
+           
+        </video>
+    </section>
+    
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Colectivo REBA. Todos los derechos reservados.</p>
+    </footer>
+</body>
+
+
+</html>
