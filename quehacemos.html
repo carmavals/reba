@@ -9,63 +9,90 @@
 <body>
     <header>
         <div class="logo">
-            <img src="assets/LOGO REBA E1182D.png" alt="Colectivo REBA">
+            <a href="home.html" title="Ir a Inicio">
+                <img src="assets/LOGO REBA E1182D.png" alt="Colectivo REBA">
+            </a>
         </div>
-        <nav>
+
+        <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav id="main-nav" aria-hidden="true">
             <a href="home.html">Inicio</a>
             <a href="quehacemos.html" class="active">¿Qué hacemos?</a>
             <a href="sumate.html">¡Súmate!</a>
             <a href="mercadillo.html">Mercado REBA</a>
-            <a href="#proyectos">Nuestros Proyectos</a>
-            <a href="#noticias">Noticias</a>
-            <a href="#contacto">Contacto</a>
+            <a href="proyectos.html">Nuestros Proyectos</a>
+            <a href="noticias.html">Noticias</a>
+            <a href="AYR.html">Alianzas y respaldos</a>
         </nav>
     </header>
 
-    <!-- <section class="hero">
-        <div class="hero-content">
-            <h1>Bienvenidos a Colectivo REBA</h1>
-            <p>Un espacio de creatividad y comunidad.</p>
-            <button class="button">Descubre más</button>
-        </div>
-        <img src="hero-image.jpg" alt="Imagen destacada">
-    </section> -->
-
-    <section class="image-section">
-        <div class="image-box">
-            <img src="imagen1.jpg" alt="Imagen 1" class="half-moon">
-        </div>
-        <div class="image-box">
-            <img src="imagen2.jpg" alt="Imagen 2" class="half-moon">
-        </div>
-        <div class="image-box">
-            <img src="imagen3.jpg" alt="Imagen 3" class="half-moon">
+    <section class="mission">
+        <div class="mission-content">
+            <h2>¿Qué hacemos en REBA?</h2>
+            <p>Compartimos aprendizajes con niñas, niños y adolescentes de contextos complejos del Perú desde la horizontalidad, colectividad y diversidad.</p>
         </div>
     </section>
 
-    <section class="projects">
-        <h2>Nuestros Proyectos</h2>
-        <div class="cards">
-            <div class="card">
-                <img src="proyecto1.jpg" alt="Proyecto 1">
-                <h3>Proyecto Uno</h3>
-                <p>Descripción breve del proyecto.</p>
-            </div>
-            <div class="card">
-                <img src="proyecto2.jpg" alt="Proyecto 2">
-                <h3>Proyecto Dos</h3>
-                <p>Descripción breve del proyecto.</p>
-            </div>
-            <div class="card">
-                <img src="proyecto3.jpg" alt="Proyecto 3">
-                <h3>Proyecto Tres</h3>
-                <p>Descripción breve del proyecto.</p>
-            </div>
+    <section class="vision">
+        <div class="vision-content">
+            <h2>¿Qué queremos lograr?</h2>
+            <p>Concientizar al mundo sobre la importancia de la educación y la cultura para el desarrollo social a través de intervenciones con un alto impacto positivo en nuestros destinatarios.</p>
+            <p>Ser un referente para otros proyectos, haciendo que nuestra labor trascienda y más personas puedan compartirla y replicarla en sus entornos.</p>
+        </div>
+    </section>
+      <section class="image-section">
+        <div class="image-box">
+            <img src="assets/quehacemos 1.jpeg" alt="Que hacemos 1" class="half-moon">
+        </div>
+        <div class="image-box">
+            <img src="assets/quehacemos2.PNG" alt="Que hacemos 2" class="half-moon">
+        </div>
+        <div class="image-box">
+            <img src="assets/quehacemos3.jpg" alt="Que hacemos 3" class="half-moon">
+        </div>
+    </section>
+
+    <section class="approach">
+        <div class="approach-content">
+            <h2>Nuestro enfoque</h2>
+            <p>Cada proyecto que diseñamos es innovador porque se construye a partir del compartir con las niñas y niños participantes, a partir de nuestros principios de acción:</p>
+            <ol>
+                <li>Diversidad, horizontalidad y colectividad como ejes.</li>
+                <li>Paradigma educativo socioconstructivista: los aprendizajes se construyen desde la exploración del entorno y de las relaciones sociales.</li>
+                <li>La conversación literaria desde el enfoque “Dime”: compartir los entusiasmos, desconciertos y conexiones a partir de una experiencia de la lectura.</li>
+                <li>Acompañamiento personalizado: trabajamos con equipos de NNA guiados por varias personas adultas, así las necesidades de aprendizaje son escuchadas óptimamente.</li>
+                <li>Aprendizaje basado en proyectos (ABP): aprendizaje activo y significativo desde la creación de proyectos por los NNA, a partir de experiencias reales. NNA investigan, analizan y resuelven problemáticas que identifican en su entorno.</li>
+            </ol>
+        </div>
+    </section>
+
+    <section class="image-section">
+        <div class="image-box">
+            <img src="assets/enfoque1.jpg" alt="enfoque1" class="half-moon">
+        </div>
+        <div class="image-box">
+            <img src="assets/enfoque2.JPG" alt="enfoque2" class="half-moon">
+        </div>
+        <div class="image-box">
+            <img src="assets/enfoque3.jpg" alt="enfoque3" class="half-moon">
         </div>
     </section>
 
     <footer>
-        <p>&copy; 2025 Colectivo REBA - Todos los derechos reservados</p>
-    </footer>
+              <!-- Sección de donaciones -->
+        <section class="donation-section">
+            <div class="logo">
+                <img src="assets/LOGO REBA BLANCO.png" alt="">
+            </div>
+            <h2>Haz tu donación</h2>
+            <button class="button">DONA</button>
+        </section>
+            <p>© 2025 Colectivo REBA | Todos los derechos reservados</p>
+        </footer>
+
+    <script src="script.js" defer></script>
 </body>
 </html>

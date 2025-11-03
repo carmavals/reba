@@ -13,22 +13,32 @@
 
 /* Estilos generales */
 body {
-    background-color: #fff;
-    color: #333;
+    background: #ffffff;
+    color: var(--reba-dark);
     width: 100%;
-    height: 100vh;
+    height: auto;
+    min-height: 100%;
     line-height: 1.6;
-    
+    -webkit-font-smoothing: antialiased;
 }
 
-/* HEADER */
+/* Variables de color del proyecto */
+:root {
+    --reba-red: #E1182D;
+    --reba-red-dark: #B5161A;
+    --reba-dark: #1f1f1f;
+    --reba-warm-1: #FFF8E6;
+    --reba-warm-2: #FFF3DC;
+    --reba-cool-1: #EEF7FF;
+    --reba-cool-2: #E6F4FF;
+    --reba-muted: #6b6b6b;
+}
+
+/* HEADER: fondo blanco y borde inferior rojo tenue (como shadow) */
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    background-color: #fff;
-    width: 100%;
+    background: #ffffff;
+    border-bottom: 4px solid rgba(225,24,45,0.06);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
 }
 
 .logo img {
@@ -43,13 +53,113 @@ nav {
 
 nav a {
     text-decoration: none;
-    color: black;
+    color: var(--reba-dark);
     font-weight: 700;
+    padding: 10px 12px;
+    display: inline-block;
+    border-radius: 6px;
 }
 
 nav a:hover, nav a.active {
     color: #D71920;
+    background: rgba(225,24,45,0.06);
 }
+
+/* Nav desplegable en móvil: fondo blanco puro */
+nav[aria-hidden="false"] {
+    background: #ffffff; /* fondo blanco neutro */
+    box-shadow: 0 8px 20px rgba(31,31,31,0.06);
+    padding: 12px 16px;
+    border-radius: 6px;
+}
+
+nav {
+    background: transparent; /* asegurar que por defecto sea transparente */
+}
+
+nav a {
+    color: var(--reba-dark);
+}
+
+nav a.active {
+    color: var(--reba-red);
+    background: rgba(225,24,45,0.06);
+}
+
+/* Asegurar que el botón hamburguesa se transforme claramente en una X */
+.menu-toggle {
+    display: none; /* sigue oculto en escritorio */
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    width: 48px;
+    height: 48px;
+    align-items: center;
+    justify-content: center;
+    padding: 8px;
+    z-index: 60; /* encima de otros elementos */
+}
+
+.menu-toggle .hamburger {
+    width: 28px;
+    height: 3px; /* barra más gruesa para mejor visibilidad */
+    background: var(--reba-dark);
+    display: block;
+    position: relative;
+    border-radius: 2px;
+}
+
+.menu-toggle .hamburger::before,
+.menu-toggle .hamburger::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    width: 28px;
+    height: 3px;
+    background: var(--reba-dark);
+    border-radius: 2px;
+    transition: transform 0.28s cubic-bezier(.4,0,.2,1), top 0.28s cubic-bezier(.4,0,.2,1), opacity 0.2s linear;
+    display: block;
+}
+.menu-toggle .hamburger::before { top: -9px; }
+.menu-toggle .hamburger::after  { top: 9px; }
+
+/* Estado abierto: X claramente visible */
+.menu-toggle[aria-expanded="true"] .hamburger { background: transparent; }
+.menu-toggle[aria-expanded="true"] .hamburger::before {
+    transform: rotate(45deg);
+    top: 0;
+}
+.menu-toggle[aria-expanded="true"] .hamburger::after {
+    transform: rotate(-45deg);
+    top: 0;
+}
+
+.menu-toggle:focus-visible {
+    outline: 3px solid rgba(215,25,32,0.18);
+    outline-offset: 4px;
+}
+
+/* Menú móvil más compacto */
+@media (max-width: 900px) {
+    .menu-toggle { display: flex; }
+
+    nav { display: none; }
+    nav[aria-hidden="false"] { display: flex; flex-direction: column; gap: 8px; padding: 8px 12px; }
+    header { align-items: center; }
+
+    /* reducir padding de enlaces del nav móvil */
+    nav[aria-hidden="false"] a {
+        padding: 8px 10px;
+        margin: 0;
+        font-size: 1rem;
+        text-align: center;
+    }
+
+    /* reducir espacio entre items y compactar el contenedor */
+    .menu-toggle { width: 44px; height: 44px; }
+}
+
 /* HERO */
 .hero {
     position: relative;
@@ -58,7 +168,9 @@ nav a:hover, nav a.active {
     justify-content: center;
     color: white;
     text-align: center;
-    height: 50vh;
+    min-height: 50vh;
+    height: auto;
+    padding: 20px 0;
     width: 100%;
     background-size: cover;
     background-position: center;
@@ -89,6 +201,9 @@ nav a:hover, nav a.active {
     flex-direction: column;
     gap: 8px;
     z-index: 1; /* Para que el texto esté por encima del overlay */
+    width: 90%;
+    max-width: 900px;
+    margin: 0 auto;
 }
 
 .hero .button {
@@ -176,11 +291,16 @@ nav a:hover, nav a.active {
 
 .newsletter-form {
     margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    flex-wrap: wrap;
 }
 
 .newsletter-form input {
     padding: 10px;
-    width: 300px;
+    width: 320px;
+    max-width: 100%;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-right: 10px;
@@ -203,39 +323,85 @@ nav a:hover, nav a.active {
 .half-moon {
     width: 100%;
     height: auto;
-    clip-path: ellipse(50% 100% at 50% 0%);
     object-fit: cover;
+    border-radius: 5px; /* pequeño radio opcional, cambiar o quitar si no se desea */
+    clip-path: none; /* asegurar que no haya recorte */
 }
 
 .image-section {
+    background: transparent !important; /* sin fondo de banda */
+    max-width: 1100px; /* sigue centrada */
+    margin: 0 auto;
+    padding: 24px 16px;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
-    padding: 40px;
-    position: relative;
 }
 
 .image-box {
-    width: 30%;
-    background-color: #ddd;
-    border-radius: 5px;
-    padding: 20px;
-    text-align: center;
+    background-color: #dddddd; /* fondo gris limitado a la caja */
+    flex: 1 1 280px; /* base más pequeño */
+    max-width: 320px; /* no se expandirá más */
+    min-width: 240px;
+    border-radius: 6px;
+    padding: 12px;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .image-box img {
     width: 100%;
-    height: auto;
-    border-radius: 5px;
+    height: 220px; /* altura uniforme */
+    object-fit: cover; /* recorta para mantener proporción */
+    border-radius: 6px;
+    display: block;
 }
 
-.circle {
-    width: 80px;
-    height: 80px;
-    background-color: #bbb;
-    border-radius: 50%;
-    position: absolute;
+/* Agrandar cajas en pantallas medianas/grandes */
+@media (min-width: 900px) {
+    .mission-content, .vision-content {
+        max-width: 920px; /* más ancho para pantallas grandes */
+        padding: 36px;
+    }
+
+    .image-section {
+        max-width: 1400px; /* sección de imágenes más amplia */
+        gap: 28px;
+        padding: 32px 16px;
+    }
+
+    .image-box {
+        flex: 1 1 340px;
+        max-width: 420px; /* cajas de imagen más grandes */
+        min-width: 300px;
+        padding: 16px;
+    }
+
+    .image-box img {
+        height: 300px; /* mayor altura para imágenes */
+    }
+}
+
+@media (min-width: 1200px) {
+    .mission-content, .vision-content {
+        max-width: 1100px; /* aún más ancho en pantallas muy grandes */
+        padding: 44px;
+    }
+
+    .image-section {
+        max-width: 1600px;
+    }
+
+    .image-box {
+        max-width: 480px;
+    }
+
+    .image-box img {
+        height: 340px;
+    }
 }
 
 /* SECCIÓN VIDEO */
@@ -251,6 +417,28 @@ nav a:hover, nav a.active {
     width: 80%;
     max-width: 800px;
     border-radius: 10px;
+}
+
+/* Estilos para video embebido dentro de cada proyecto */
+.project-video {
+    position: relative;
+    width: 100%;
+    padding-top: 56.25%; /* 16:9 aspect ratio */
+    overflow: hidden;
+    border-radius: 8px;
+    background: #000;
+}
+.project-video iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border: 0;
+}
+
+@media (max-width: 600px) {
+    .project-video { padding-top: 56.25%; }
 }
 
 /* SECCIÓN PASOS */
@@ -321,35 +509,28 @@ nav a:hover, nav a.active {
 }
 .carousel img {
     width: 100%;
-    height: auto;
-    display: block;
+    max-width: 400px;
+    height: 260px;
+    object-fit: cover;
+    margin: 0 10px;
+    border-radius: 8px;
 }
 .prev, .next {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background-color: rgba(0, 0, 0, 0.5);
+    background-color: rgba(0,0,0,0.5);
     color: white;
     border: none;
-    padding: 10px;
+    padding: 8px 12px;
     cursor: pointer;
 }
 .prev { left: 10px; }
 .next { right: 10px; }
-.dots {
-    text-align: center;
-    padding: 10px;
-}
-.dot {
-    display: inline-block;
-    width: 10px;
-    height: 10px;
-    background-color: gray;
-    border-radius: 50%;
-    margin: 5px;
-    cursor: pointer;
-}
-.dot.active { background-color: black; }
+
+.dots { margin-top: 12px; }
+.dot { width: 10px; height: 10px; background: gray; display: inline-block; margin: 0 6px; border-radius: 50%; cursor: pointer; }
+.dot.active { background: black; }
 
 .products {
     padding: 20px;
@@ -385,59 +566,468 @@ nav a:hover, nav a.active {
     background: gray;
 }
 
-/* FOOTER */
-footer {
-    background-color: black;
-    color: white;
-    text-align: center;
-    padding: 15px;
-    font-size: .8rem;
+/* Estilos específicos para los proyectos (reemplazan el uso previo de .product) */
+.project {
+    background: #f5f5f5;
+    padding: 16px;
+    border-radius: 10px;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.06);
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    text-align: left;
+}
+
+.project h3 {
+    margin: 6px 0;
+    font-size: 1.1rem;
+    color: var(--reba-dark);
+}
+
+.project .short-desc {
+    color: var(--reba-muted);
+    font-size: 0.98rem;
+}
+
+.project .full-desc {
+    color: var(--reba-dark);
+    font-size: 0.95rem;
+}
+
+/* Carrusel dentro de cada proyecto: por defecto muestra una imagen grande; al hover/focus muestra 3 miniaturas */
+.project-carousel {
     width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #eaeaea;
+    height: 220px; /* altura fija para mantener consistencia */
 }
 
-/* RESPONSIVE DESIGN */
-@media (max-width: 1024px) {
-    .hero {
-        flex-direction: column;
-        text-align: center;
-        height: auto;
-        padding: 30px;
-    }
+.project-carousel .carousel-images {
+    display: flex;
+    gap: 8px;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
 
-    .hero img {
-        width: 60%;
-    }
+.project-carousel .carousel-images img {
+    flex: 0 0 100%; /* cada imagen ocupa el 100% del ancho del contenedor */
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
 
-    .hero-content {
-        width: 100%;
-    }
+@media (max-width: 600px) {
+    .project-carousel { height: 160px; }
+    .project-carousel .carousel-images img { height: 160px; }
+}
 
-    .cards {
-        flex-direction: column;
-        align-items: center;
-    }
+/* SECCIÓN MISIÓN Y VISIÓN */
+.mission, .vision {
+    background: transparent !important;
+    padding: 40px 16px;
+}
 
-    .card {
-        width: 80%;
+.mission-content, .vision-content {
+    background: inherit; /* mantenido por reglas previas que definen colores */
+    max-width: 1100px; /* ancho limitado de la caja */
+    margin: 0 auto;
+    padding: 28px; /* fondo y padding internos */
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(31,31,31,0.04);
+}
+
+/* Títulos en Misión y Visión en negrita */
+.mission-content h2,
+.vision-content h2 {
+    font-weight: 800; /* más peso para negrita marcada */
+    font-size: 1.8rem;
+}
+
+@media (max-width: 600px) {
+    .mission-content h2,
+    .vision-content h2 {
+        font-size: 1.4rem;
     }
 }
 
-@media (max-width: 768px) {
+/* Ajuste: hacer que las cajas de Misión/Visión coincidan con el ancho de la sección de imágenes */
+.mission-content, .vision-content {
+    /* ancho por defecto alineado al de .image-section */
+    max-width: 1100px; /* mismo valor base que .image-section */
+    margin: 0 auto;
+    padding: 28px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(31,31,31,0.04);
+}
+
+@media (min-width: 900px) {
+    .mission-content, .vision-content {
+        max-width: 1400px; /* coincide con .image-section en >=900px */
+        padding: 36px;
+    }
+}
+
+@media (min-width: 1200px) {
+    .mission-content, .vision-content {
+        max-width: 1600px; /* coincide con .image-section en >=1200px */
+        padding: 44px;
+    }
+}
+
+/* Diferenciar ligeramente la caja de visión con otro gris */
+.vision-content {
+    background: #dddddd;
+}
+
+@media (max-width: 900px) {
+    .mission-content, .vision-content {
+        max-width: 100%;
+        padding: 18px;
+        box-shadow: none;
+    }
+    .mission, .vision { padding: 28px 0; }
+}
+
+/* Misión y Visión — fondos grises similares a las imágenes */
+.mission {
+    background: #e6e6e6; /* tono gris suave, similar a .image-box (#ddd) */
+    color: var(--reba-dark);
+    padding: 48px 16px;
+    border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+.vision {
+    background: #dddddd; /* otro gris suave para diferenciarlas ligeramente */
+    color: var(--reba-dark);
+    padding: 48px 16px;
+    border-top: 1px solid rgba(0,0,0,0.04);
+}
+
+@media (max-width: 600px) {
     header {
-        flex-direction: column;
-        text-align: center;
+        padding: 12px 16px;
+    }
+
+    .logo img {
+        width: 110px;
     }
 
     nav {
         flex-direction: column;
-        gap: 10px;
+        gap: 8px;
+        align-items: center;
     }
 
-    .hero img {
-        width: 80%;
+    .hero {
+        padding: 36px 16px;
     }
 
-    .card {
+    .hero-content h1 {
+        font-size: 1.6rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .cards, .newsletter-container, .testimonial-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .card, .newsletter-card, .testimonial, .image-box {
         width: 100%;
     }
+
+    .product-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .newsletter-form {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .newsletter-form input, .newsletter-form .button {
+        width: 100%;
+    }
+
+    footer {
+        font-size: 0.9rem;
+        padding: 20px;
+    }
+
+    .prev, .next {
+        padding: 8px;
+    }
+}
+
+/* En pantallas grandes usar todo el ancho disponible */
+@media (min-width: 1200px) {
+    .container {
+        max-width: none; /* permitir ancho completo */
+        width: 100%;
+        padding: 0 24px; /* pequeño padding lateral */
+    }
+
+    header {
+        padding: 20px 40px;
+    }
+
+    .hero {
+        min-height: 70vh; /* hero más alto en pantallas grandes */
+        padding: 40px 0;
+    }
+
+    .cards {
+        justify-content: space-between;
+    }
+
+    .product-grid {
+        max-width: none;
+    }
+}
+
+/* Preferencias de reducción de movimiento (accesibilidad) */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        transition: none !important;
+        animation: none !important;
+    }
+}
+
+/* Pequeños ajustes para interacción táctil */
+a, button, input {
+    -webkit-tap-highlight-color: rgba(0,0,0,0.06);
+}
+
+/* Nuestro enfoque (estilos) */
+.approach {
+    padding: 40px 16px;
+}
+
+.approach-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    background: #f7f7f7;
+    padding: 28px;
+    border-radius: 8px;
+    box-shadow: 0 6px 18px rgba(31,31,31,0.04);
+    color: var(--reba-dark);
+}
+
+.approach h2 {
+    color: var(--reba-red);
+    margin-bottom: 12px;
+}
+
+.approach p, .approach li {
+    color: var(--reba-muted);
+    line-height: 1.6;
+    margin: 8px 0;
+}
+
+.approach ol {
+    padding-left: 20px;
+}
+
+@media (max-width: 900px) {
+    .approach-content { max-width: 100%; padding: 18px; box-shadow: none; }
+}
+
+/* Footer siempre negro */
+footer {
+    background-color: #000 !important;
+    color: #fff !important;
+    text-align: center;
+    padding: 20px;
+    font-size: .9rem;
+    width: 100%;
+}
+
+footer .donation-section .logo img {
+    filter: brightness(0) invert(1);
+}
+
+/* SECCIÓN VOLUNTARIOS */
+.volunteer {
+    padding: 36px 16px;
+    background: #f8f8f8;
+}
+
+.volunteer-content {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.volunteer h2 {
+    color: var(--reba-red);
+    margin-bottom: 12px;
+    font-weight: 700;
+}
+
+.volunteer .button {
+    margin-top: 16px;
+    display: inline-block;
+    padding: 12px 20px;
+    background: var(--reba-red);
+    color: #fff;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+    transition: background 0.2s ease, color 0.2s ease, transform 0.08s ease;
+}
+
+.volunteer .button:hover,
+.volunteer a.button:hover {
+    background: #000; /* se vuelve negro al pasar el cursor */
+    color: #fff;
+}
+
+.volunteer .button:active,
+.volunteer a.button:active {
+    transform: translateY(1px);
+}
+
+.volunteer .button:focus-visible,
+.volunteer a.button:focus-visible {
+    outline: 3px solid rgba(215,25,32,0.18);
+    outline-offset: 3px;
+}
+
+@media (max-width: 600px) {
+    .volunteer-content { padding: 0 12px; }
+}
+
+/* SECCIÓN CARRUSEL */
+.carousel-section {
+    padding: 28px 16px;
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+.carousel-header .button {
+    background: var(--reba-red);
+    color: white;
+    padding: 10px 18px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.carousel {
+    position: relative;
+    margin-top: 18px;
+}
+.carousel-container {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+}
+.carousel img {
+    width: 100%;
+    max-width: 400px;
+    height: 260px;
+    object-fit: cover;
+    margin: 0 10px;
+    border-radius: 8px;
+}
+.prev, .next {
+    background-color: rgba(0,0,0,0.5);
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    cursor: pointer;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.prev { left: 10px; }
+.next { right: 10px; }
+
+.dots { margin-top: 12px; }
+.dot { width: 10px; height: 10px; background: gray; display: inline-block; margin: 0 6px; border-radius: 50%; cursor: pointer; }
+.dot.active { background: black; }
+
+@media (max-width: 600px) {
+    .carousel img { height: 180px; max-width: 260px; }
+}
+
+/* SECCIÓN BIBLIOTECA */
+.library {
+    padding: 28px 16px;
+    text-align: center;
+    background: #fff;
+}
+
+.library .button {
+    background: var(--reba-red);
+    color: #fff;
+    padding: 12px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    font-weight: 700;
+}
+
+.library .button:hover { background: #000; }
+
+/* SECCIÓN TRABAJA CON NOSOTROS */
+.work-with-us {
+    padding: 28px 16px;
+    background: #f5f5f5;
+}
+
+.work-content {
+    max-width: 1100px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.work-content h2 { color: var(--reba-red); margin-bottom: 10px; }
+.work-content p { color: var(--reba-muted); line-height: 1.6; }
+
+@media (max-width: 600px) {
+    .work-content { padding: 0 12px; }
+}
+
+/* Ajuste: forzar que los artículos de proyectos estén en columna (uno debajo del otro) */
+.product-grid {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+/* Estilos de carrusel simplificados: una imagen a la vez, desplazamiento por transform */
+.project-carousel {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    background: #eaeaea;
+    height: 220px; /* altura fija para mantener consistencia */
+}
+
+.project-carousel .carousel-images {
+    display: flex;
+    gap: 8px;
+    transition: transform 0.5s ease-in-out;
+    will-change: transform;
+}
+
+.project-carousel .carousel-images img {
+    flex: 0 0 100%; /* cada imagen ocupa el 100% del ancho del contenedor */
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 6px;
+    display: block;
+}
+
+@media (max-width: 600px) {
+    .project-carousel { height: 160px; }
+    .project-carousel .carousel-images img { height: 160px; }
 }
