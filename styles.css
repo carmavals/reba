@@ -36,6 +36,11 @@ body {
 
 /* HEADER: fondo blanco y borde inferior rojo tenue (como shadow) */
 header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* por defecto en pantallas pequeñas se permite separación */
+    gap: 16px;
+    padding: 12px 16px;
     background: #ffffff;
     border-bottom: 4px solid rgba(225,24,45,0.06);
     box-shadow: 0 2px 8px rgba(0,0,0,0.03);
@@ -774,7 +779,7 @@ nav a.active {
     }
 
     header {
-        padding: 20px 40px;
+        padding: 12px 48px; /* menos padding izquierdo para acercar el nav al borde */
     }
 
     .hero {
@@ -1002,32 +1007,31 @@ footer .donation-section .logo img {
     margin: 0 auto;
 }
 
-/* Estilos de carrusel simplificados: una imagen a la vez, desplazamiento por transform */
-.project-carousel {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #eaeaea;
-    height: 220px; /* altura fija para mantener consistencia */
-}
-
-.project-carousel .carousel-images {
+/* Layout del header: usar flex para controlar posicionamiento del logo y nav */
+header {
     display: flex;
-    gap: 8px;
-    transition: transform 0.5s ease-in-out;
-    will-change: transform;
+    align-items: center;
+    justify-content: space-between; /* por defecto en pantallas pequeñas se permite separación */
+    gap: 16px;
+    padding: 12px 16px;
 }
 
-.project-carousel .carousel-images img {
-    flex: 0 0 100%; /* cada imagen ocupa el 100% del ancho del contenedor */
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
-}
+/* Asegurar que el logo quede a la izquierda y el nav siga después del logo */
+.logo { display: flex; align-items: center; }
 
-@media (max-width: 600px) {
-    .project-carousel { height: 160px; }
-    .project-carousel .carousel-images img { height: 160px; }
+/* En pantallas grandes queremos que el nav permanezca a la izquierda junto al logo (no centrado) */
+@media (min-width: 1200px) {
+    header {
+        justify-content: space-between; /* logo a la izquierda, nav a la derecha */
+        padding: 12px 48px;
+    }
+
+    /* Mantener el toggle oculto en pantallas grandes */
+    .menu-toggle { display: none; }
+
+    nav {
+        display: flex; /* asegurarse que sea horizontal */
+        margin-left: auto; /* empuja el nav a la derecha */
+        gap: 20px;
+    }
 }
