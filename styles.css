@@ -198,6 +198,10 @@ nav a.active {
 .hero-home {
     background: url('assets/IMG_9370.jpg') no-repeat center center/cover;
 }
+.hero2-home{
+       background: url('assets/IMG_0189.jpg') no-repeat center top/cover;
+
+}
 .hero-content {
     display: flex;
     padding: 20px;
@@ -227,6 +231,36 @@ nav a.active {
     background-color: #D71920;
     color: white;
 }
+
+.modal-container{
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.show{
+    pointer-events: auto;
+    visibility: visible;
+    opacity: 1;
+}
+.modal{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    max-width: 90%;
+    max-height: 90%;
+    overflow: auto;
+}
+
 
 /* SECCIÓN DE PROYECTOS */
 .projects {

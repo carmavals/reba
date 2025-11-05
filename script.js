@@ -114,3 +114,31 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
+// Modal de donación
+const open = document.getElementById('open');
+const modalContainer = document.getElementById('modal-container');
+const close = document.getElementById('close');
+
+open.addEventListener('click', () => {
+    modalContainer.classList.add('show');
+    
+})
+
+close.addEventListener('click', () => {
+    modalContainer.classList.remove('show');
+
+});
+
+//modal donacion en footer 
+const openFooter = document.getElementById('open-footer');
+const modalContainerFooter = document.getElementById('modal-container2');
+const closeFooter = document.getElementById('close-footer');
+
+openFooter.addEventListener('click', () => {
+    modalContainerFooter.classList.add('show');
+})
+
+closeFooter.addEventListener('click', () => {
+    modalContainerFooter.classList.remove('show');
+});

@@ -1,22 +1,24 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Colectivo REBA</title>
     <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
     <!-- Contenedor general -->
-    <div class="container">
+    
 
         <!-- Header -->
         <header>
             <div class="logo">
-                
+
                 <img src="assets/LOGO REBA E1182D.png" alt="">
-                
+
             </div>
 
             <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
@@ -38,13 +40,20 @@
             <div class="hero-content">
                 <h1>Bienvenidos a Colectivo REBA</h1>
                 <p>Apoyamos iniciativas sociales con impacto positivo.</p>
-                <a href="#" class="button">¡DONAR!</a>
+                <a href="#" class="button" id="open">¡DONAR!</a>
+                <div class="modal-container" id="modal-container">
+                    <div class="modal">
+                        <img src="assets/dona.jpeg" alt="">
+                        <button class="button" id="close">CERRAR</button>
+                    </div>
+
+                </div>
             </div>
             <!-- <img src="assets/IMG_9370.jpg" alt="Imagen Representativa"> -->
         </section>
 
         <!-- Sección de proyectos -->
-        <section class="projects">
+        <!-- <section class="projects">
             <div class="cards">
                 <div class="card">
                     <img src="project1.png" alt="Proyecto 1">
@@ -62,7 +71,7 @@
                     <p>Descripción breve del proyecto.</p>
                 </div>
             </div>
-        </section>
+        </section> -->
 
         <!-- Sección Newsletter -->
         <section class="newsletter">
@@ -88,24 +97,36 @@
             </form>
         </section>
 
-      
+
 
         <!-- Pie de página -->
         <footer>
-              <!-- Sección de donaciones -->
-        <section class="donation-section">
-            <div class="logo">
-                <img src="assets/LOGO REBA BLANCO.png" alt="">
+            <!-- Sección de donaciones -->
+            <section class="donation-section hero">
+                <div class="logo">
+                    <img src="assets/LOGO REBA BLANCO.png" alt="">
+                </div>
+
+               <div class="hero-content">
+                <h1>Bienvenidos a Colectivo REBA</h1>
+                <p>Apoyamos iniciativas sociales con impacto positivo.</p>
+                <a href="#" class="button" id="open-footer">¡DONAR!</a>
+                <div class="modal-container" id="modal-container2">
+                    <div class="modal">
+                        <img src="assets/dona.jpeg" alt="">
+                        <button class="button" id="close-footer">CERRAR</button>
+                    </div>
+
+                </div>
             </div>
-            <h2>Haz tu donación</h2>
-            <button class="button">DONA</button>
-        </section>
+            </section>
             <p>© 2025 Colectivo REBA | Todos los derechos reservados</p>
         </footer>
 
-    </div>
+    
 
     <script src="script.js" defer></script>
 
 </body>
+
 </html>
