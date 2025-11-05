@@ -115,30 +115,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
 });
 
-// Modal de donación
-const open = document.getElementById('open');
-const modalContainer = document.getElementById('modal-container');
-const close = document.getElementById('close');
+document.addEventListener('DOMContentLoaded', () => {
+  // modal donación en header (si existe)
+  const open = document.getElementById('open');
+  const modalContainer = document.getElementById('modal-container');
+  const close = document.getElementById('close');
+  if (open && modalContainer && close) {
+    open.addEventListener('click', () => modalContainer.classList.add('show'));
+    close.addEventListener('click', () => modalContainer.classList.remove('show'));
+  }
 
-open.addEventListener('click', () => {
-    modalContainer.classList.add('show');
-    
-})
-
-close.addEventListener('click', () => {
-    modalContainer.classList.remove('show');
-
-});
-
-//modal donacion en footer 
-const openFooter = document.getElementById('open-footer');
-const modalContainerFooter = document.getElementById('modal-container2');
-const closeFooter = document.getElementById('close-footer');
-
-openFooter.addEventListener('click', () => {
-    modalContainerFooter.classList.add('show');
-})
-
-closeFooter.addEventListener('click', () => {
-    modalContainerFooter.classList.remove('show');
+  // modal donación en footer (si existe)
+  const openFooter = document.getElementById('open-footer');
+  const modalContainerFooter = document.getElementById('modal-container2');
+  const closeFooter = document.getElementById('close-footer');
+  if (openFooter && modalContainerFooter && closeFooter) {
+    openFooter.addEventListener('click', (e) => {
+      e.preventDefault();
+      modalContainerFooter.classList.add('show');
+    });
+    closeFooter.addEventListener('click', () => {
+      modalContainerFooter.classList.remove('show');
+    });
+  }
 });

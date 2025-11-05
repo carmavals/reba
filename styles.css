@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@300..700&display=swap');
 
 /* Reset básico */
@@ -256,11 +257,15 @@ nav a.active {
     background: white;
     padding: 20px;
     border-radius: 10px;
-    max-width: 90%;
-    max-height: 90%;
+    max-width: 80%;
+    max-height: 80%;
     overflow: auto;
 }
-
+.modal img{
+    width: 70%;
+    height: auto;
+    border-radius: 10px;
+}
 
 /* SECCIÓN DE PROYECTOS */
 .projects {
@@ -296,12 +301,35 @@ nav a.active {
 /* SECCIÓN NEWSLETTER */
 .newsletter {
     text-align: center;
-    padding: 50px;
-    background-color: #f8f8f8;
+    padding: 80px 20px;
+     background-color: #fafafa
 }
 
 .newsletter h2 {
-    margin-bottom: 10px;
+    font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+
+.newsletter p {
+  color: #555;
+  max-width: 700px;
+  margin: 0 auto 40px auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+
+/* Grid de boletines */
+.newsletter-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 30px;
+  justify-content: center;
+  align-items: stretch;
+  padding: 0 20px;
 }
 
 .newsletter-container {
@@ -312,14 +340,61 @@ nav a.active {
 }
 
 .newsletter-card {
-    background: white;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    width: 30%;
-    text-align: center;
+   background-color: #fff;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 25px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
+
+.newsletter-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.newsletter-card h3 {
+  color: #E1182D; /* Color institucional REBA */
+  font-size: 1.3rem;
+  margin-bottom: 10px;
+  font-weight: 600;
+}
+
+.newsletter-card p {
+  color: #444;
+  line-height: 1.5;
+  margin-bottom: 15px;
+}
+
+.newsletter-card a {
+  display: inline-block;
+  color: #fff;
+  background-color: #E1182D;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.newsletter-card a:hover {
+  background-color: #b71224;
+}
+
+@media (max-width: 768px) {
+  .newsletter {
+    padding: 60px 10px;
+  }
+
+  .newsletter h2 {
+    font-size: 1.8rem;
+  }
+
+  .newsletter-card {
+    padding: 20px;
+  }
+}
 .image-placeholder {
     width: 100%;
     height: 150px;
@@ -423,6 +498,8 @@ nav a.active {
         height: 300px; /* mayor altura para imágenes */
     }
 }
+
+
 
 @media (min-width: 1200px) {
     .mission-content, .vision-content {
@@ -635,11 +712,10 @@ nav a.active {
 
 /* Carrusel dentro de cada proyecto: por defecto muestra una imagen grande; al hover/focus muestra 3 miniaturas */
 .project-carousel {
-    width: 100%;
-    overflow: hidden;
-    border-radius: 8px;
-    background: #eaeaea;
-    height: 220px; /* altura fija para mantener consistencia */
+   width: 100%;
+  overflow: hidden;
+  border-radius: 8px;
+  background: #eaeaea;
 }
 
 .project-carousel .carousel-images {
@@ -650,12 +726,12 @@ nav a.active {
 }
 
 .project-carousel .carousel-images img {
-    flex: 0 0 100%; /* cada imagen ocupa el 100% del ancho del contenedor */
-    width: 100%;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 6px;
-    display: block;
+  flex: 0 0 100%;
+  width: 100%;
+  height: auto; /* 🔹 No fuerza altura */
+  object-fit: contain;
+  border-radius: 6px;
+  display: block;
 }
 
 @media (max-width: 600px) {
@@ -878,17 +954,47 @@ a, button, input {
 }
 
 /* Footer siempre negro */
+/* --- FOOTER REBA AJUSTADO --- */
 footer {
-    background-color: #000 !important;
-    color: #fff !important;
-    text-align: center;
-    padding: 20px;
-    font-size: .9rem;
-    width: 100%;
+  background-color: #000 !important;
+  color: #fff !important;
+  text-align: center;
+  padding: 30px 16px 20px; /* 🔹 reduce altura superior e inferior */
+  font-size: 0.9rem;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px; /* espacio entre logo y texto */
 }
 
+/* Centrar la sección de donación (que incluye el logo) */
+footer .donation-section {
+  background: none;
+  min-height: auto; /* quita altura innecesaria */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0; /* elimina espacios internos grandes */
+  text-align: center;
+}
+
+/* Centrar y reducir el logo */
 footer .donation-section .logo img {
-    filter: brightness(0) invert(1);
+  width: 140px; /* 🔹 ajusta tamaño */
+  height: auto;
+  display: block;
+  margin: 0 auto;
+  filter: brightness(0) invert(1);
+}
+
+/* Ajustar el texto del footer */
+footer p {
+  margin: 0;
+  color: #ccc;
+  font-size: 0.85rem;
 }
 
 /* SECCIÓN VOLUNTARIOS */
@@ -1068,4 +1174,156 @@ header {
         margin-left: auto; /* empuja el nav a la derecha */
         gap: 20px;
     }
+}
+/* ===========================
+   HERO DE SERVICIOS
+   =========================== */
+.hero-servicios {
+  position: relative;
+  width: 100%;
+  background: url("assets/IMG_0169.jpg") center center / cover no-repeat;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  text-align: center;
+  padding: 100px 20px; /* 🔹 define el alto del hero con espacio interior */
+  box-sizing: border-box;
+}
+
+.hero-servicios-overlay {
+
+  padding: 60px 20px;
+  border-radius: 10px;
+  max-width: 800px;
+}
+
+.hero-servicios h1 {
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 15px;
+}
+
+.hero-servicios p {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: 0 auto;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .hero-servicios {
+    padding: 60px 20px;
+  }
+  .hero-servicios h1 {
+    font-size: 1.8rem;
+  }
+  .hero-servicios p {
+    font-size: 1rem;
+  }
+}
+
+/* ===========================
+   SECCIÓN SERVICIOS
+   =========================== */
+.servicios {
+  padding: 80px 20px;
+  background-color: #fff;
+  text-align: center;
+}
+
+.servicios h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.servicios p {
+  color: #555;
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
+.servicios-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 40px;
+  justify-content: center;
+  padding: 0 20px;
+}
+
+.servicio-card {
+  background-color: #fafafa;
+  border-radius: 15px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+  padding: 30px;
+  text-align: left;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+}
+
+.servicio-card h3 {
+  color: #E1182D;
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  font-weight: 600;
+}
+
+.servicio-card p {
+  color: #444;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+.servicio-card .button {
+  display: inline-block;
+  color: #fff;
+  background-color: #E1182D;
+  padding: 10px 25px;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: background 0.3s ease;
+}
+
+.servicio-card .button:hover {
+  background-color: #b71224;
+}
+
+@media (max-width: 768px) {
+  .servicios {
+    padding: 60px 15px;
+  }
+
+  .servicio-card {
+    padding: 25px;
+  }
+}
+
+/* --- Enlaces del footer --- */
+.footer-links {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+  margin: 15px 0;
+  flex-wrap: wrap;
+}
+
+.footer-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #E1182D; /* tono rojo REBA */
 }
