@@ -1307,6 +1307,27 @@ header {
   }
 }
 
+.partnerships {
+  padding: 80px 20px;
+  background-color: #f9f9f9;
+  text-align: center;
+}
+
+.partnerships h2 {
+  font-size: 2.2rem;
+  color: #333;
+  margin-bottom: 10px;
+  font-weight: 700;
+}
+
+.partnerships p {
+  color: #555;
+  max-width: 750px;
+  margin: 0 auto 40px auto;
+  font-size: 1rem;
+  line-height: 1.6;
+}
+
 /* --- Enlaces del footer --- */
 .footer-links {
   display: flex;
