@@ -203,6 +203,10 @@ nav a.active {
        background: url('assets/IMG_0189.jpg') no-repeat center top/cover;
 
 }
+.hero3-home{
+       background: url('assets/sumate.jpg') no-repeat center top/cover;
+
+}
 .hero-content {
     display: flex;
     padding: 20px;
