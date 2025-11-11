@@ -200,7 +200,7 @@ nav a.active {
     background: url('assets/IMG_9370.jpg') no-repeat center center/cover;
 }
 .hero2-home{
-       background: url('assets/IMG_0189.jpg') no-repeat center center/cover;
+       background: url('assets/IMG_0189.jpg') no-repeat center top/cover;
 
 }
 .hero-content {
@@ -722,44 +722,19 @@ nav a.active {
 
 .project-carousel .carousel-images {
     display: flex;
-    /* gap: 8px; */
-    transition: transform 0.8s ease;
-    /* will-change: transform; */
-    width: 100%;
+    gap: 8px;
+    transition: transform 0.5s ease;
+    will-change: transform;
 }
 
 .project-carousel .carousel-images img {
-    
   flex: 0 0 100%;
-  flex-shrink: 0;
   width: 100%;
   height: auto; /* 🔹 No fuerza altura */
-  object-fit: cover;
+  object-fit: contain;
   border-radius: 6px;
   display: block;
 }
-.carousel-dots {
-  display: flex;
-  justify-content: center;
-  gap: 6px;
-  position: absolute;
-  bottom: 10px;
-  width: 100%;
-}
-
-.carousel-dot {
-  width: 10px;
-  height: 10px;
-  border-radius: 50%;
-  background-color: rgba(255, 255, 255, 0.6);
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-}
-
-.carousel-dot.active {
-  background-color: rgba(255, 255, 255, 0.95);
-}
-
 
 @media (max-width: 600px) {
     .project-carousel { height: 160px; }
@@ -1161,44 +1136,9 @@ footer p {
 .work-content h2 { color: var(--reba-red); margin-bottom: 10px; }
 .work-content p { color: var(--reba-muted); line-height: 1.6; }
 
-.virtual-library{
- padding: 28px 16px;
-    text-align: center;
-
-}
-
-.virtual-library .button {
-    background: var(--reba-red);
-    /* color: #fff; */
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-}
-
-.virtual-library .button:hover { background: #000; }
-
-.steps .library .trayectoria a {
-    background: var(--reba-red);
-    color: #ffffff;
-    padding: 12px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    font-weight: 700;
-    position: relative;
-    top: 10px;
-}
-
 @media (max-width: 600px) {
     .work-content { padding: 0 12px; }
 }
-
-.project .virtual-library{
-    margin-top: 12px;
-    text-align: center;
-    background: none;
-}
-
 
 /* Ajuste: forzar que los artículos de proyectos estén en columna (uno debajo del otro) */
 .product-grid {

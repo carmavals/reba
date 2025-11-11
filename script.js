@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', () => {
         }
     });
 
-    // --- Lógica para carruseles por proyecto: avanzar una imagen a la vez mientras se hace hover/focus ---
+    // --- Lógica para carruseles por proyecto: con indicadores circulares ---
     const projectElements = document.querySelectorAll('.project');
     projectElements.forEach((proj) => {
         const carousel = proj.querySelector('.project-carousel .carousel-images');
@@ -74,17 +74,45 @@ document.addEventListener('DOMContentLoaded', () => {
 
         let idx = 0;
         let intervalId = null;
+        const total = images.length;
+
+        // Crear contenedor de puntos si no existe
+        let dotsContainer = proj.querySelector('.carousel-dots');
+        if (!dotsContainer) {
+            dotsContainer = document.createElement('div');
+            dotsContainer.classList.add('carousel-dots');
+            proj.querySelector('.project-carousel').appendChild(dotsContainer);
+        }
+
+        // Crear los indicadores (círculos)
+        for (let i = 0; i < total; i++) {
+            const dot = document.createElement("div");
+            dot.classList.add("carousel-dot");
+            if (i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => {
+                idx = i;
+                showIndex(idx);
+                updateDots();
+            });
+            dotsContainer.appendChild(dot);
+        }
 
         function showIndex(i) {
-            const total = images.length || 1;
-            const percent = (i * 100) / total; // mover por fracción del ancho total del carrusel
-            carousel.style.transform = `translateX(-${percent}%)`;
+            carousel.style.transform = `translateX(-${i * 100}%)`;
+            updateDots();
+        }
+
+        function updateDots() {
+            const dots = dotsContainer.querySelectorAll(".carousel-dot");
+            dots.forEach((dot, j) => {
+                dot.classList.toggle("active", j === idx);
+            });
         }
 
         function startAuto() {
             if (intervalId) return;
             intervalId = setInterval(() => {
-                idx = (idx + 1) % images.length;
+                idx = (idx + 1) % total;
                 showIndex(idx);
             }, 2200);
         }
@@ -112,7 +140,6 @@ document.addEventListener('DOMContentLoaded', () => {
         proj.addEventListener('touchstart', () => startAuto(), { passive: true });
         proj.addEventListener('touchend', () => stopAuto(false));
     });
-
 });
 
 document.addEventListener('DOMContentLoaded', () => {
