@@ -11,132 +11,148 @@
 <body>
 
     <!-- Contenedor general -->
-    
 
-        <!-- Header -->
-        <header>
-            <div class="logo">
 
-                <img src="assets/LOGO REBA E1182D.png" alt="">
+    <!-- Header -->
+    <header>
+        <div class="logo">
+
+            <img src="assets/LOGO REBA E1182D.png" alt="">
+
+        </div>
+
+        <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
+            <span class="hamburger"></span>
+        </button>
+
+        <nav id="main-nav" aria-hidden="true">
+            <a href="quehacemos.html">¿Qué hacemos?</a>
+            <a href="proyectos.html">Nuestros Proyectos</a>
+            <a href="sumate.html">¡Súmate!</a>
+            <a href="servicios.html">Servicios</a>
+            <!-- <a href="mercadillo.html">Mercadillo REBA</a> -->
+            <a href="noticias.html">Noticias</a>
+
+        </nav>
+    </header>
+
+    <!-- Sección Hero -->
+    <section class="hero hero-home">
+        <div class="hero-content">
+            <h1>¡Bienvenidxs a Colectivo REBA!</h1>
+            <p>Comparte. aprende. crece</p>
+            <a href="#" class="button" id="open">¡DONAR!</a>
+            <div class="modal-container" id="modal-container">
+                <div class="modal">
+                    <img src="assets/dona.jpeg" alt="">
+                    <button class="button" id="close">CERRAR</button>
+                </div>
 
             </div>
+        </div>
+        <!-- <img src="assets/IMG_9370.jpg" alt="Imagen Representativa"> -->
+    </section>
 
-            <button class="menu-toggle" aria-controls="main-nav" aria-expanded="false" aria-label="Abrir menú">
-                <span class="hamburger"></span>
-            </button>
-
-            <nav id="main-nav" aria-hidden="true">
-                <a href="quehacemos.html">¿Qué hacemos?</a>
-                <a href="sumate.html">¡Súmate!</a>
-                <a href="mercadillo.html">Mercadillo REBA</a>
-                <a href="proyectos.html">Nuestros Proyectos</a>
-                <a href="noticias.html">Noticias</a>
-                <a href="servicios.html">Servicios</a>
-            </nav>
-        </header>
-
-        <!-- Sección Hero -->
-        <section class="hero hero-home">
-            <div class="hero-content">
-                <h1>Bienvenidxs a Colectivo REBA</h1>
-                <p>Apoyamos iniciativas sociales con impacto positivo.</p>
-                <a href="#" class="button" id="open">¡DONAR!</a>
-                <div class="modal-container" id="modal-container">
-                    <div class="modal">
-                        <img src="assets/dona.jpeg" alt="">
-                        <button class="button" id="close">CERRAR</button>
-                    </div>
-
-                </div>
+    <!-- Sección de proyectos -->
+    <section class="projects">
+        <div class="cards">
+            <div class="card">
+                <img src="assets/IMG_0381.jpg" alt="Proyecto 1">
+                <h3>Leer para crear (2012 - 2025)</h3>
+                <p>Promoción de acceso al derecho a la lectura en comunidades rurales del Perú, beneficiando a más de
+                    500 niñas, niños y adolescentes.</p>
             </div>
-            <!-- <img src="assets/IMG_9370.jpg" alt="Imagen Representativa"> -->
-        </section>
-
-        <!-- Sección de proyectos -->
-        <!-- <section class="projects">
-            <div class="cards">
-                <div class="card">
-                    <img src="project1.png" alt="Proyecto 1">
-                    <h3>Proyecto 1</h3>
-                    <p>Descripción breve del proyecto.</p>
-                </div>
-                <div class="card">
-                    <img src="project2.png" alt="Proyecto 2">
-                    <h3>Proyecto 2</h3>
-                    <p>Descripción breve del proyecto.</p>
-                </div>
-                <div class="card">
-                    <img src="project3.png" alt="Proyecto 3">
-                    <h3>Proyecto 3</h3>
-                    <p>Descripción breve del proyecto.</p>
-                </div>
+            <div class="card">
+                <img src="assets/IMG_7884.JPG" alt="Proyecto 2">
+                <h3>Escribimos en los humedales (2023)</h3>
+                <p>Fomentamos la lectura, la escritura y la reflexión sobre el medio ambiente y la interculturalidad a
+                    través de la creación de libros cartoneros con niñas, niños y adolescentes de Ventanilla.</p>
             </div>
-        </section> -->
+            <div class="card">
+                <img src="assets/IMG_3687.JPG" alt="Proyecto 3">
+                <h3>Leemos en los humedales (2023)</h3>
+                <p>El proyecto fortaleció la mediación lectora y la reflexión literaria sobre la igualdad de género, el
+                    bien común, la interculturalidad y el cuidado del medio ambiente con niñas, niños y adolescentes de
+                    Ventanilla.</p>
+            </div>
+        </div>
 
-        <!-- Sección Newsletter -->
-        <!-- <section class="newsletter">
-            <h2>Suscríbete a nuestro Newsletter</h2>
-            <p>Mantente informado sobre nuestras iniciativas y proyectos.</p>
-            <div class="newsletter-container">
-                <div class="newsletter-card">
-                    <div class="image-placeholder"></div>
-                    <p>Últimas noticias sobre nuestros proyectos</p>
-                </div>
-                <div class="newsletter-card">
+        <div class="project-info">
+            <p>Conoce más sobre </p>
+            <a href="proyectos.html" class="button">Nuestros proyectos</a>
+        </div>
+    </section>
+
+    <!-- Sección Newsletter -->
+    <section class="newsletter">
+        <a class="newsletter-link" href="newsletter.html">
+            <h2>Newsletter</h2>
+        </a>
+        <p>Mantente informado sobre nuestras iniciativas y proyectos.</p>
+        <div class="newsletter-container">
+            <div class="newsletter-card">
+                <!-- <div class="image-placeholder"></div> -->
+                <h3>Paradigma educativo socioconstructivista: aprender haciendo, aprender juntxs
+                </h3>
+                <p>Descubre cómo el paradigma socioconstructivista inspira el trabajo de Colectivo REBA en comunidades del Perú. Una educación viva, participativa e intercultural que transforma realidades.</p>
+            </div>
+            <!-- <div class="newsletter-card">
                     <div class="image-placeholder"></div>
                     <p>Historias inspiradoras de nuestra comunidad</p>
-                </div>
-                <div class="newsletter-card">
+                </div> -->
+            <!-- <div class="newsletter-card">
                     <div class="image-placeholder"></div>
                     <p>Oportunidades para contribuir y participar</p>
-                </div>
-            </div>
-            <form class="newsletter-form">
+                </div> -->
+        </div>
+        <!-- <form class="newsletter-form">
                 <input type="email" placeholder="Ingresa tu correo" required>
                 <button type="submit" class="button">Suscribirme</button>
-            </form>
-        </section> -->
-<!-- Alianzas y respaldos  -->
- <section class="partnerships">
-    <h2>Nuestros aliados y respaldos </h2>
-<p>Somos una organización reconocida como Punto de Cultura por el
-Ministerio de Cultura del Perú. Además, hemos sido ganadores del Concurso Nacional de Proyectos para el Fomento para la Lectura y la Escritura de los Estímulos Económicos para la Cultura los años 2021 y 2022. </p>
- </section>
+            </form> -->
+    </section>
+    <!-- Alianzas y respaldos  -->
+    <section class="partnerships">
+        <h2>Nuestros aliados y respaldos </h2>
+        <p>Somos una organización reconocida como Punto de Cultura por el
+            Ministerio de Cultura del Perú. Además, hemos sido ganadores del Concurso Nacional de Proyectos para el
+            Fomento para la Lectura y la Escritura de los Estímulos Económicos para la Cultura los años 2021 y 2022.
+        </p>
+    </section>
 
 
-        <!-- Pie de página -->
-       <footer>
-  <section class="donation-section hero">
-    <div class="logo">
-      <img src="assets/LOGO REBA BLANCO.png" alt="">
-    </div>
+    <!-- Pie de página -->
+    <footer>
+        <section class="donation-section hero">
+            <div class="logo">
+                <img src="assets/LOGO REBA BLANCO.png" alt="">
+            </div>
 
-    <div class="hero-content">
-      <h1>Bienvenidos a Colectivo REBA</h1>
-      <p>Apoyamos iniciativas sociales con impacto positivo.</p>
+            <div class="hero-content">
+                <h1>¡Bienvenidxs a Colectivo REBA!</h1>
+                <p>Comparte. aprende. crece</p>
 
-      <!-- 🔹 NUEVOS LINKS -->
-      <div class="footer-links">
-        <a href="quehacemos.html">Conócenos</a>
-        <a href="contacto.html">Contacto</a>
-        <a href="https://www.instagram.com/colectivo_reba/?hl=es" target="_blank">Redes Sociales</a>
-      </div>
+                <!-- 🔹 NUEVOS LINKS -->
+                <div class="footer-links">
+                    <a href="quehacemos.html">Conócenos</a>
+                    <a href="mailto:colectivo.reba@gmail.com">Contacto</a>
+                    <a href="https://www.instagram.com/colectivo_reba/?hl=es" target="_blank">Redes Sociales</a>
+                </div>
 
-      <a href="#" class="button" id="open-footer">¡DONAR!</a>
+                <a href="#" class="button" id="open-footer">¡DONAR!</a>
 
-      <div class="modal-container" id="modal-container2">
-        <div class="modal">
-          <img src="assets/dona.jpeg" alt="">
-          <button class="button" id="close-footer">CERRAR</button>
-        </div>
-      </div>
-    </div>
-  </section>
+                <div class="modal-container" id="modal-container2">
+                    <div class="modal">
+                        <img src="assets/dona.jpeg" alt="">
+                        <button class="button" id="close-footer">CERRAR</button>
+                    </div>
+                </div>
+            </div>
+        </section>
 
-  <p>© 2025 Colectivo REBA | Todos los derechos reservados</p>
-</footer>
+        <p>© 2025 Colectivo REBA | Todos los derechos reservados</p>
+    </footer>
 
-    
+
 
     <script src="script.js" defer></script>
 
