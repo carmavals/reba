@@ -200,10 +200,10 @@ nav a.active {
     background: url('assets/IMG_9370.jpg') no-repeat center center/contain;
 } */
 .hero-home {
-  background-image: url('assets/Niñxs\ -\ Horizontal\ dos.jpg');
+  background-image: url('assets/Horizontal\ .jpg');
   background-repeat: no-repeat;
   background-attachment: fixed;
-  background-position: center center;
+  background-position: top center;
 }
 .hero2-home{
  background-image: url('assets/quehacemos2.PNG');
